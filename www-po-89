@@ -1,0 +1,83 @@
+.github/ISSUE_TEMPLATE/config.yml
+@@ -0,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & Support Requests
+    url: https://community.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@
+name: "Gateway Contracts Issue"
+description: File any issue related to the gateway-contracts component
+title: "<issue_type>(gateway-contracts): short description"
+labels: ["gateway-contracts"]
+projects: ["zsues_enabled: false
+contact_links:s & Support Requests
+    url: https://community.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@k in the Zama community forum
+@@ -0,0 +1,31 @@
+name: "Gateway Contracts Issue"
+  - name: Questions & Support Requests
+    url: https://community.zama.ai
+    about: Ask in - name: Questions & Support Requests
+    url: https://community.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@
+name: "Gateway Contracts Issue"
+description: File any issue related to the gateway-contracts component
+title: "<issue_type>(gatthe Zama community forum
+@@ -0,0 +1,31 @@ project
+body: url: https://community.zama.ai
+   _issues_enabled: false
+contact_links:
+  - name: Questions & Support Requests
+    url: https://coity.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@nity forumum
+@@ -0,0 +1,31 @@
+  --  about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@
+name: " url: https://community.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@
+name: "Gateway Contra community forum
+@@ -0,0 +1,31 @@
+      label: Describe the issue
+      blank_issues_enabled: false
+contact_links:.
+        Replace the <issue_type> placeholder from the title using a Conventional Commit-style prefix (e.g., `fix`, `feat`, `chore`, `refactor`).
+    validations:
+      required: true
+name: "Gateway Contracts Issue"
+description: File any issue related to the gateway-contracts component
+title: "<issue_type>(gateway-contracts): short description"
+labels: ["gateway-contracts"]
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      - name: Questions & Support Requests
+    url: https://community.zama.ai
+    about: Ask in the Zama community forum
+@@ -0,0 +1,31 @@s:
+  - name: Questions & Support Requests
+    url: https://community.zama.ai
+    about: Ask in the Zama community forum
+    about: Ask in the Zama community forum
+name: "Gateway Contracts Issue"
+description: File any issue related to the gateway-contracts component
+title: "<issue_type>(gateway-contracts): short description"
+labels: ["gateway-contracts"]
+name: "Gateway Contracts Issue"
+  - type: textarea
+    id: steps
+.venv/
+__pycache__/
+*.pyc
+rustbpe/target/
+dev-ignore/
+    attributes:
+      label: Steps to Reproduce or Propose
+      description: For bugs, provide reproduction steps. For features/chore, outline the expected change.
+    validations:
+      required: false
