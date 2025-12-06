@@ -1,0 +1,139 @@
+# QuickNote CLI
+
+A tiny command-line tool to create, list and remove short notes stored locally in a JSON file.
+
+## Features
+- Add a quick note
+- List all notes
+- Delete a note by ID
+
+## Requirements
+- Python 3.8+
+
+## Installation (local)
+```bash
+git clone https://github.com/<your-username>/quicknote-cli.git
+cd quicknote-cli
+python -m venv venv
+source venv/bin/activate    # on Windows: venv\Scripts\activate
+pip install -r requirements.txt
+# add a note
+python quicknote.py add "Buy milk"
+
+# list notes
+python quicknote.py list
+
+# delete a note
+python quicknote.py delete 2
+
+---
+
+### `.gitignore`
+
+---
+
+### `requirements.txt`
+
+---
+
+### `quicknote.py`
+```python
+#!/usr/bin/env python3
+"""
+QuickNote CLI - a minimal local notes manager
+Usage:
+    python quicknote.py add "note text"
+    python quicknote.py list
+    python quicknote.py delete <id>
+"""
+
+import argparse
+import json
+from pathlib import Path
+import sys
+from datetime import datetime
+
+CONFIG_DIR = Path.home() / ".quicknote"
+NOTES_FILE = CONFIG_DIR / "notes.json"
+
+def ensure_storage():
+    CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    if not NOTES_FILE.exists():
+        NOTES_FILE.write_text("[]", encoding="utf-8")
+
+def load_notes():
+    ensure_storage()
+    try:
+        return json.loads(NOTES_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+
+def save_notes(notes):
+    NOTES_FILE.write_text(json.dumps(notes, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def cmd_add(text):
+    notes = load_notes()
+    note = {
+        "id": (max([n["id"] for n in notes]) + 1) if notes else 1,
+        "text": text,
+        "created_at": datetime.utcnow().isoformat() + "Z"
+    }
+    notes.append(note)
+    save_notes(notes)
+    print(f"Added note #{note['id']}")
+
+def cmd_list():
+    notes = load_notes()
+    if not notes:
+        print("No notes yet. Add one with: python quicknote.py add \"Buy milk\"")
+        return
+    for n in notes:
+        created = n.get("created_at", "")
+        print(f"{n['id']}: {n['text']}  ({created})")
+
+def cmd_delete(note_id):
+    notes = load_notes()
+    new = [n for n in notes if n["id"] != note_id]
+    if len(new) == len(notes):
+        print(f"No note with id {note_id}")
+    else:
+        save_notes(new)
+        print(f"Deleted note {note_id}")
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(prog="quicknote", description="QuickNote CLI")
+    sub = parser.add_subparsers(dest="command")
+
+    p_add = sub.add_parser("add", help="Add a note")
+    p_add.add_argument("text", help="Note text", nargs="+")
+    p_list = sub.add_parser("list", help="List notes")
+    p_del = sub.add_parser("delete", help="Delete note by id")
+    p_del.add_argument("id", type=int, help="Note id to delete")
+
+    args = parser.parse_args(argv)
+    if args.command == "add":
+        text = " ".join(args.text)
+        cmd_add(text)
+    elif args.command == "list":
+        cmd_list()
+    elif args.command == "delete":
+        cmd_delete(args.id)
+    else:
+        parser.print_help()
+
+if __name__ == "__main__":
+    main()
+MIT License
+
+Copyright (c) 2025 <Your Name>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+[standard MIT body here]
+# محلی
+git init
+git add .
+git commit -m "Initial commit: QuickNote CLI"
+git branch -M main
+# روی GitHub یک repo با نام quicknote-cli بساز و سپس:
+git remote add origin https://github.com/<your-username>/quicknote-cli.git
+git push -u origin main
