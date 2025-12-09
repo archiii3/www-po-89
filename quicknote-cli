@@ -109,6 +109,7 @@ def main(argv=None):
     p_list = sub.add_parser("list", help="List notes")
     p_del = sub.add_parser("delete", help="Delete note by id")
     p_del.add_argument("id", type=int, help="Note id to delete")
+git clone https://github.com/<your-username>/quicknote-cli.git
 
     args = parser.parse_args(argv)
     if args.command == "add":
