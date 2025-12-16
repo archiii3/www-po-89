@@ -47,6 +47,8 @@ Usage:
     python quicknote.py delete <id>
 """
 
+# delete a note
+python quicknote.py delete 2
 import argparse
 import json
 from pathlib import Path
