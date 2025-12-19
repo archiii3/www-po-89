@@ -4,8 +4,6 @@ A tiny command-line tool to create, list and remove short notes stored locally i
 
 ## Features
 - Add a quick note
-- List all notes
-- Delete a note by ID
 
 ## Requirements
 - Python 3.8+
@@ -30,6 +28,8 @@ python quicknote.py delete 2
 
 ### `.gitignore`
 
+- List all notes
+- Delete a note by ID
 ---
 
 ### `requirements.txt`
