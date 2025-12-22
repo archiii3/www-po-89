@@ -23,7 +23,9 @@ python quicknote.py list
 
 # delete a note
 python quicknote.py delete 2
-
+cd quicknote-cli
+python -m venv venv
+source venv/bin/activate  
 ---
 
 ### `.gitignore`
